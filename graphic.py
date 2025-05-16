@@ -12,15 +12,19 @@ def read_data(file_path):
 
 data1 = read_data('data/stats_1.txt')
 data2 = read_data('data/stats_2.txt')
+data3 = read_data('data/stats_3.txt')
 
 sizes1 = sorted(data1.keys())
 times1 = [data1[size] for size in sizes1]
 sizes2 = sorted(data2.keys())
 times2 = [data2[size] for size in sizes2]
+sizes3 = sorted(data3.keys())
+times3 = [data3[size] for size in sizes3]
 
 plt.figure(figsize=(10, 6))
 plt.plot(sizes1, times1, label='Время', marker='o')
-plt.plot(sizes2, times2, label='Время с openmp', marker='x')
+plt.plot(sizes2, times2, label='Время с OpenMP', marker='x')
+plt.plot(sizes3, times3, label='Время с MPI', marker='x')
 
 plt.xlabel('Размер')
 plt.ylabel('Время, мс')
